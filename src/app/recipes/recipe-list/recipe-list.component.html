@@ -1,1 +1,12 @@
-<p>recipe-list works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-primary">New Recipe</button>
+        <hr>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12" style="margin-right: 10px;">
+        <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" (recipeClicked)="onRecipeClicked(recipe)"></app-recipe-item>
+    </div>
+</div>
+
