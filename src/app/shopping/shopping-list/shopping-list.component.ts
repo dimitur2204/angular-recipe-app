@@ -14,6 +14,15 @@ export class ShoppingListComponent implements OnInit {
 
   constructor() { }
 
+  onIngredientAdded(ingredient:Ingredient){
+    this.ingredients= this.ingredients.concat(ingredient);
+  }
+  onIngredientRemoved(name:string){
+    this.ingredients= this.ingredients.filter(i => i.name!==name);
+  }
+  onIngredientsClear(){
+    this.ingredients= [];
+  }
   ngOnInit(): void {
   }
 
