@@ -25,4 +25,7 @@ export class RecipeDetailComponent implements OnInit {
   addIngredientsToShopping(){
     this.recipe.ingredients.forEach(i =>this.shoppingService.addIngredient(i))
   }
+  deleteRecipe(){
+    this.recipeService.deleteRecipe(this.recipe);
+  }
 }

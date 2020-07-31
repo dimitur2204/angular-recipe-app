@@ -16,9 +16,18 @@ export class RecipeService{
       ];
       
       getRecipes(){
-          return this.recipes.slice();
+          return this.recipes;
       }
       getRecipeById(id){
           return this.recipes[id];
+      }
+      addRecipe(recipe:Recipe){
+          this.recipes.push(recipe);
+      }
+      updateRecipe(index:number,recipe:Recipe){
+        this.recipes[index] = recipe;
+    }
+    deleteRecipe(recipe:Recipe) {
+        this.recipes = this.recipes.splice(this.recipes.indexOf(recipe),1);
       }
 }

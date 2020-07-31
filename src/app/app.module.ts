@@ -12,7 +12,9 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from "./app-routing.module";
 import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create/recipe-create.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RecipeService } from './recipes/services/recipe.service';
+import { ActiveOnClickedDirective } from './share/active-on-clicked.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,15 +26,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     RecipeDetailComponent,
     RecipesComponent,
     DropdownDirective,
-    RecipeCreateComponent
+    RecipeCreateComponent,
+    ActiveOnClickedDirective
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

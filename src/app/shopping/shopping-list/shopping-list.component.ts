@@ -9,7 +9,7 @@ import { ShoppingListService } from '../services/shopping-list.service';
 export class ShoppingListComponent implements OnInit {
 
   ingredients:Ingredient[];
-
+  clicked:Boolean;
   constructor(private shoppingListService:ShoppingListService) { }
 
   ngOnInit(): void {
@@ -18,4 +18,7 @@ export class ShoppingListComponent implements OnInit {
             this.ingredients = ingredients;
           })
       }
+    onIngredientClicked(index:number){
+      this.clicked = !this.clicked;
+    }
 }
