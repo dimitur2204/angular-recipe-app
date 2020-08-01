@@ -13,15 +13,15 @@
           <a class="nav-link" href="#" routerLink="recipes" [routerLinkActive]="'active'">Recipes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"  routerLink="shopping-list" [routerLinkActive]="'active'">Shopping list</a>
+            <a class="nav-link" href=""  routerLink="shopping-list" [routerLinkActive]="'active'">Shopping list</a>
           </li>
-        <li class="nav-item dropdown" appDropdown>
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+        <li class="nav-item dropdown float-right" appDropdown>
+          <a class="nav-link dropdown-toggle float-right" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Manage
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" >Save Data</a>
-            <a class="dropdown-item" >Fetch Data</a>
+            <a class="dropdown-item" (click)="onSaveData()">Save Data</a>
+            <a class="dropdown-item" (click)="onFetchData()">Fetch Data</a>
           </div>
         </li>
       </ul>

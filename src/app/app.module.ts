@@ -13,8 +13,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from "./app-routing.module";
 import { RecipeCreateComponent } from './recipes/recipe-create/recipe-create/recipe-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { RecipeService } from './recipes/services/recipe.service';
-import { ActiveOnClickedDirective } from './share/active-on-clicked.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,14 +28,14 @@ import { ActiveOnClickedDirective } from './share/active-on-clicked.directive';
     RecipesComponent,
     DropdownDirective,
     RecipeCreateComponent,
-    ActiveOnClickedDirective
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [RecipeService],
   bootstrap: [AppComponent]

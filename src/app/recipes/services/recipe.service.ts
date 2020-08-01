@@ -1,33 +1,43 @@
 import { Recipe } from "../recipe.model";
-import { EventEmitter } from '@angular/core';
-import { Ingredient } from 'src/app/shared/ingredient.model';
-import { FormControl, AbstractControl } from '@angular/forms';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
+@Injectable({
+    providedIn:"root"
+})
 export class RecipeService{
     recipeSelected = new EventEmitter<Recipe>();
+    recipeChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [
-        new Recipe('Baked potatoes','Potatoes that are baked are vary tasty with ingredients','https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/chorizo-mozarella-gnocchi-bake-cropped.jpg',[
-            new Ingredient('Potatoes',10),
-            new Ingredient('Eggs',2),
-        ]),
-        new Recipe('Slow roast Gochujang Chicken','A slowly roasted half-day like Adam chicken','https://assets.bonappetit.com/photos/5d7296eec4af4d0008ad1263/master/pass/Basically-Gojuchang-Chicken-Recipe-Wide.jpg',[
-            new Ingredient('Chicken',1),
-            new Ingredient('Salt',2),
-        ])
       ];
-      
+      constructor() {
+          
+      }
       getRecipes(){
           return this.recipes;
       }
       getRecipeById(id){
+
           return this.recipes[id];
       }
       addRecipe(recipe:Recipe){
           this.recipes.push(recipe);
+          this.recipeChanged.next(this.recipes.slice());
+ 
       }
       updateRecipe(index:number,recipe:Recipe){
         this.recipes[index] = recipe;
+        this.recipeChanged.next(this.recipes.slice());
+      
     }
     deleteRecipe(recipe:Recipe) {
         this.recipes = this.recipes.splice(this.recipes.indexOf(recipe),1);
+        this.recipeChanged.next(this.recipes.slice());
+        
+      }
+      setRecipes(recipes:Recipe[]){
+          this.recipes = recipes;
+          this.recipeChanged.next(this.recipes.slice());
+        
       }
 }
