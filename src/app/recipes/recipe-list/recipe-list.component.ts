@@ -18,10 +18,10 @@ export class RecipeListComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.dataStorage.fetchRecipes();
+    this.dataStorage.fetchRecipes().subscribe();
     this.recipeService.recipeChanged.subscribe(recipes => {
-      this.dataStorage.storeRecipes();
       this.recipes = recipes;
+      this.dataStorage.storeRecipes();
     });
     this.recipes = this.recipeService.getRecipes();
   }

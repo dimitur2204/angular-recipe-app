@@ -15,10 +15,5 @@ export class HeaderComponent implements OnInit {
   
   ngOnInit(): void {
   }
-  onSaveData(){
-    this.dataStorage.storeRecipes();
-  }
-  onFetchData(){
-    this.dataStorage.fetchRecipes();
-  }
+
 }
