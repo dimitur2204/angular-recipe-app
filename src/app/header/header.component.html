@@ -6,24 +6,21 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+      <li>
+        <a class="nav-link" href=""  routerLink="auth" [routerLinkActive]="'active'" *ngIf="!isLoggedIn">Authenticate</a>
+      </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" href="#" [routerLinkActive]="'active'">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="recipes" [routerLinkActive]="'active'">Recipes</a>
+          <a class="nav-link" href="#" routerLink="recipes" [routerLinkActive]="'active'" *ngIf="isLoggedIn">Recipes</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href=""  routerLink="shopping-list" [routerLinkActive]="'active'">Shopping list</a>
           </li>
-        <li class="nav-item dropdown float-right" appDropdown>
-          <a class="nav-link dropdown-toggle float-right" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Manage
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item">Save Data</a>
-            <a class="dropdown-item" >Fetch Data</a>
-          </div>
-        </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a class="nav-link" href=""  routerLink="auth" [routerLinkActive]="'active'" (click)="onLogout()">Logout</a>
+          </li>
       </ul>
     </div>
   </nav>
