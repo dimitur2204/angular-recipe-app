@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
-import { ShoppingListEditComponent } from './shopping/shopping-list-edit/shopping-list-edit.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
@@ -17,12 +15,11 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { RecipeService } from './recipes/services/recipe.service';
 import { AuthComponent } from './auth/auth.component';
 import {AuthInterceptorService} from './auth/auth-interceptor.service';
+import {ShoppingListModule} from './shopping/shopping-list/shopping-list.module';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingListEditComponent,
     RecipeListComponent,
     RecipeItemComponent,
     RecipeDetailComponent,
@@ -37,7 +34,8 @@ import {AuthInterceptorService} from './auth/auth-interceptor.service';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ShoppingListModule
   ],
   providers: [RecipeService, {provide: HTTP_INTERCEPTORS, 'useClass': AuthInterceptorService, multi:true}],
   bootstrap: [AppComponent]
